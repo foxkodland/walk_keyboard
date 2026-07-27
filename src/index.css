@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+body{
+  font-family: "Comfortaa", sans-serif;
+}
+
+.game_board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+}
+
+.game_brick{
+  display: flex;
+  height: 34px;
+  width: 34px;
+  border: solid 1px black;
+  align-items: center;
+  justify-content: center;
 }
