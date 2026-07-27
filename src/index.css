@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --cell-size: 34px;
+  --count-column-board: 20; 
+}
+
 body{
   font-family: "Comfortaa", sans-serif;
 }
@@ -11,13 +18,13 @@ body{
 .game_board {
   display: flex;
   flex-wrap: wrap;
-  width: 700px;
+  width: calc(var(--cell-size) * var(--count-column-board));
 }
 
 .game_brick{
   display: flex;
-  height: 34px;
-  width: 34px;
+  height: var(--cell-size);
+  width: var(--cell-size);
   border: solid 1px black;
   align-items: center;
   justify-content: center;
