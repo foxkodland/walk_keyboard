@@ -1,9 +1,41 @@
+import { useEffect, useState } from "react"
 
 function App() {
+  const [board, setBoard] = useState();
+
+  function getRandomChar() {
+    const ruLettersLower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    const randomIndex = Math.floor(Math.random() * ruLettersLower.length)
+    return ruLettersLower[randomIndex]
+  }
+
+  function generateBoard() {
+    const board = []
+    for (let i = 0; i < 10; i++) {
+      let row = []
+      for (let j = 0; j < 20; j++) {
+        row.push(getRandomChar())
+      }
+      board.push(row)
+    }
+    return board
+  }
+
+
+  useEffect(() => {
+    const b = generateBoard()
+    setBoard(b)
+  }, [])
 
   return (
     <>
-      <div className="game_board"><div className="game_brick">ы</div><div className="game_brick">о</div><div className="game_brick">о</div><div className="game_brick">д</div><div className="game_brick">а</div><div className="game_brick">о</div><div className="game_brick">в</div><div className="game_brick">ы</div><div className="game_brick">о</div><div className="game_brick">в</div><div className="game_brick">а</div><div className="game_brick">о</div><div className="game_brick">в</div><div className="game_brick">л</div><div className="game_brick">ы</div><div className="game_brick">ж</div><div className="game_brick">а</div><div className="game_brick">в</div><div className="game_brick">л</div><div className="game_brick">д</div><div className="game_brick">д</div><div className="game_brick">ф</div><div className="game_brick">а</div><div className="game_brick">д</div><div className="game_brick">в</div><div className="game_brick">л</div><div className="game_brick">ж</div><div className="game_brick">ы</div><div className="game_brick">л</div><div className="game_brick">ф</div><div className="game_brick">д</div><div className="game_brick">ж</div><div className="game_brick">в</div><div className="game_brick">ф</div><div className="game_brick">а</div><div className="game_brick">ж</div><div className="game_brick">ы</div><div className="game_brick">ы</div><div className="game_brick">л</div><div className="game_brick">ж</div><div className="game_brick">ж</div><div className="game_brick">л</div><div className="game_brick">а</div><div className="game_brick">ы</div><div className="game_brick">ж</div><div className="game_brick">ф</div><div className="game_brick">а</div><div className="game_brick">д</div><div className="game_brick">д</div><div className="game_brick">о</div><div className="game_brick">л</div><div className="game_brick">ж</div><div className="game_brick">о</div><div className="game_brick">о</div><div className="game_brick">д</div><div className="game_brick">д</div><div className="game_brick">ф</div><div className="game_brick">о</div><div className="game_brick">д</div><div className="game_brick">а</div><div className="game_brick">о</div><div className="game_brick">л</div><div className="game_brick">ж</div><div className="game_brick">ы</div><div className="game_brick">л</div><div className="game_brick">в</div><div className="game_brick">о</div><div className="game_brick">ж</div><div className="game_brick">ы</div><div className="game_brick">а</div><div className="game_brick">в</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick">в</div><div className="game_brick">ж</div><div className="game_brick">ы</div><div className="game_brick">а</div><div className="game_brick">ж</div><div className="game_brick">д</div><div className="game_brick">ы</div><div className="game_brick">о</div><div className="game_brick">а</div><div className="game_brick">в</div><div className="game_brick">о</div><div className="game_brick">а</div><div className="game_brick">в</div><div className="game_brick">д</div><div className="game_brick">ф</div><div className="game_brick">ы</div><div className="game_brick">л</div><div className="game_brick">в</div><div className="game_brick">ф</div><div className="game_brick">а</div><div className="game_brick">в</div><div className="game_brick">л</div><div className="game_brick">л</div><div className="game_brick game_goal">д</div><div className="game_brick">ф</div><div className="game_brick">ф</div><div className="game_brick">л</div><div className="game_brick">ф</div><div className="game_brick">ж</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick">ф</div><div className="game_brick">ж</div><div className="game_brick">ж</div><div className="game_brick">в</div><div className="game_brick">в</div><div className="game_brick">л</div><div className="game_brick">ы</div><div className="game_brick">ж</div><div className="game_brick">а</div><div className="game_brick">о</div><div className="game_brick">д</div><div className="game_brick">ж</div><div className="game_brick">ы</div><div className="game_brick">а</div><div className="game_brick">ж</div><div className="game_brick">в</div><div className="game_brick">л</div><div className="game_brick">о</div><div className="game_brick">о</div><div className="game_brick">ж</div><div className="game_brick">ф</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick game_way">а</div><div className="game_brick">ж</div><div className="game_brick">д</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick">л</div><div className="game_brick">ы</div><div className="game_brick">в</div><div className="game_brick">ф</div><div className="game_brick">л</div><div className="game_brick">о</div><div className="game_brick">ы</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick">в</div><div className="game_brick">ф</div><div className="game_brick">ж</div><div className="game_brick">в</div><div className="game_brick">а</div><div className="game_brick game_way">о</div><div className="game_brick game_position">о</div><div className="game_brick game_way">ы</div><div className="game_brick">ы</div><div className="game_brick">ф</div><div className="game_brick">о</div><div className="game_brick">в</div><div className="game_brick">а</div><div className="game_brick">ж</div><div className="game_brick">ф</div><div className="game_brick">д</div><div className="game_brick">д</div><div className="game_brick">ы</div><div className="game_brick">о</div><div className="game_brick">ж</div><div className="game_brick">в</div><div className="game_brick">д</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick">ы</div><div className="game_brick">ы</div><div className="game_brick game_way">ж</div><div className="game_brick">а</div><div className="game_brick">л</div><div className="game_brick">в</div><div className="game_brick">а</div><div className="game_brick">д</div><div className="game_brick">л</div><div className="game_brick">л</div><div className="game_brick">о</div><div className="game_brick">о</div><div className="game_brick">ж</div><div className="game_brick">ж</div><div className="game_brick">ф</div><div className="game_brick">ж</div><div className="game_brick">о</div><div className="game_brick">о</div><div className="game_brick">ф</div><div className="game_brick">ф</div><div className="game_brick">о</div><div className="game_brick">д</div><div className="game_brick">ф</div><div className="game_brick">о</div><div className="game_brick">ж</div><div className="game_brick">ж</div><div className="game_brick">а</div><div className="game_brick">о</div><div className="game_brick">ж</div><div className="game_brick">в</div><div className="game_brick">ы</div><div className="game_brick">ф</div><div className="game_brick">в</div><div className="game_brick">а</div><div className="game_brick">ф</div><div className="clr"></div></div>
+      <div className="game_board">
+        {board && board.map(row =>
+          row.map(cell =>
+            <div className="game_brick">{cell}</div>
+          )
+        )}
+      </div>
     </>
   )
 }
