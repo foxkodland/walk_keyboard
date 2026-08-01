@@ -37,3 +37,7 @@ body{
 .game_brick_way {
   background-color: green;
 }
+
+.game_brick_target{
+  background-color: rgb(255, 123, 224);
+}

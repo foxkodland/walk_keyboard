@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 function App() {
   const [board, setBoard] = useState<string[][]>();
   const [playerCell, setPlayerCell] = useState([3, 10])
+  const [goalCell, setGoalCell] = useState([0,0])
 
 
 
@@ -30,6 +31,9 @@ function App() {
   }, [])
 
   function specialColorCell(rowNumber: number, colNumber: number) {
+    if (rowNumber == goalCell[0] &&  colNumber == goalCell[1]) {
+      return "game_brick_target"
+    }
     if (rowNumber == playerCell[0] && colNumber == playerCell[1]) {
       return "game_brick_special"
     }
@@ -39,8 +43,13 @@ function App() {
     if (rowNumber == playerCell[0] + 1 && colNumber == playerCell[1]) {
       return "game_brick_way"
     }
-
-    return ""
+        if (rowNumber == playerCell[0] && colNumber == playerCell[1] -1) {
+      return "game_brick_way"
+    }
+    if (rowNumber == playerCell[0] && colNumber == playerCell[1] +1) {
+      return "game_brick_way"
+    }
+    return "" 
   }
 
   return (
