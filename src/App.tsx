@@ -29,7 +29,7 @@ function App() {
     setBoard(b)
   }, [])
 
-  function specialColorCell(rowNumber, colNumber) {
+  function specialColorCell(rowNumber: number, colNumber: number) {
     if (rowNumber == playerCell[0] && colNumber == playerCell[1]) {
       return "game_brick_special"
     }
