@@ -7,7 +7,7 @@
 }
 
 :root {
-  --cell-size: 34px;
+  --cell-size: 45px;
   --count-column-board: 20; 
 }
 
@@ -32,4 +32,8 @@ body{
 
 .game_brick_special {
   background-color: gray;
+}
+
+.game_brick_way {
+  background-color: green;
 }

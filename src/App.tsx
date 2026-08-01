@@ -29,6 +29,20 @@ function App() {
     setBoard(b)
   }, [])
 
+  function specialColorCell(rowNumber, colNumber) {
+    if (rowNumber == playerCell[0] && colNumber == playerCell[1]) {
+      return "game_brick_special"
+    }
+    if (rowNumber == playerCell[0] - 1 && colNumber == playerCell[1]) {
+      return "game_brick_way"
+    }
+    if (rowNumber == playerCell[0] + 1 && colNumber == playerCell[1]) {
+      return "game_brick_way"
+    }
+
+    return ""
+  }
+
   return (
     <>
       <div className="game_board">
@@ -36,7 +50,7 @@ function App() {
 
         {board && board.map((row, rowNumber) =>
           row.map((cell, colNumber) =>
-            <div className={`game_brick ${rowNumber == playerCell[0] && colNumber == playerCell[1] ? "game_brick_special" : ""}`}>{cell}</div>
+            <div className={`game_brick ${specialColorCell(rowNumber, colNumber)}`}>{rowNumber} {colNumber}</div>
           )
         )}
       </div>
