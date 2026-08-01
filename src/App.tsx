@@ -52,6 +52,24 @@ function App() {
     return "" 
   }
 
+  function keyDown(e) {
+    // console.log(e.key);
+    // вниз
+    if (board[playerCell[0]+1][playerCell[1]] == e.key) {
+      const pos = [...playerCell]
+      pos[0] += 1
+      setPlayerCell(pos)
+    }
+  }
+
+  useEffect(()=>{
+    window.addEventListener("keydown", keyDown)
+
+    return () => {
+      window.removeEventListener('keydown', keyDown);
+    };
+  }, [board])
+
   return (
     <>
       <div className="game_board">
@@ -59,7 +77,7 @@ function App() {
 
         {board && board.map((row, rowNumber) =>
           row.map((cell, colNumber) =>
-            <div className={`game_brick ${specialColorCell(rowNumber, colNumber)}`}>{rowNumber} {colNumber}</div>
+            <div className={`game_brick ${specialColorCell(rowNumber, colNumber)}`}>{cell}</div>
           )
         )}
       </div>
