@@ -55,20 +55,37 @@ function App() {
   function keyDown(e) {
     // console.log(e.key);
     // вниз
+       const pos = [...playerCell]
     if (board[playerCell[0]+1][playerCell[1]] == e.key) {
-      const pos = [...playerCell]
       pos[0] += 1
       setPlayerCell(pos)
     }
-  }
 
+    if (board[playerCell[0]-1][playerCell[1]] == e.key) {
+      pos[0] -= 1
+      setPlayerCell(pos)
+    }
+    if (board[playerCell[0]][playerCell[1]+1] == e.key) {
+      pos[1] += 1
+      setPlayerCell(pos)
+    }
+    if (board[playerCell[0]][playerCell[1]-1] == e.key) {
+      pos[1] -= 1
+      setPlayerCell(pos)
+    }
+    // ПРОВЕРКА ДОСТИГли цЕЛИ
+    if (pos[0] == goalCell[0] && pos[1] == goalCell[1]) {
+      const newPos = [Math.floor(Math.random() *10), Math.floor(Math.random() *20)]
+      setGoalCell(newPos)
+    }
+  }
   useEffect(()=>{
     window.addEventListener("keydown", keyDown)
 
     return () => {
       window.removeEventListener('keydown', keyDown);
     };
-  }, [board])
+  }, [board, playerCell])
 
   return (
     <>
