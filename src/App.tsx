@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 function App() {
   const [board, setBoard] = useState<string[][]>();
-  const [playerCell, setPlayerCell] = useState([5, 10])
+  const [playerCell, setPlayerCell] = useState([3, 10])
 
 
 
@@ -24,7 +24,6 @@ function App() {
     return board
   }
 
-
   useEffect(() => {
     const b = generateBoard()
     setBoard(b)
@@ -33,9 +32,11 @@ function App() {
   return (
     <>
       <div className="game_board">
-        {board && board.map(row =>
-          row.map(cell =>
-            <div className="game_brick">{cell}</div>
+        {/* game_brick_special */}
+
+        {board && board.map((row, rowNumber) =>
+          row.map((cell, colNumber) =>
+            <div className={`game_brick ${rowNumber == playerCell[0] && colNumber == playerCell[1] ? "game_brick_special" : ""}`}>{cell}</div>
           )
         )}
       </div>
