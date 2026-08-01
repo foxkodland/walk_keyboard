@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 
 function App() {
-  const [board, setBoard] = useState();
+  const [board, setBoard] = useState<string[][]>();
+  const [playerCell, setPlayerCell] = useState([5, 10])
+
+
 
   function getRandomChar() {
     const ruLettersLower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
