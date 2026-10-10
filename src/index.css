@@ -21,23 +21,4 @@ body{
   width: calc(var(--cell-size) * var(--count-column-board));
 }
 
-.game_brick{
-  display: flex;
-  height: var(--cell-size);
-  width: var(--cell-size);
-  border: solid 1px black;
-  align-items: center;
-  justify-content: center;
-}
 
-.game_brick_special {
-  background-color: gray;
-}
-
-.game_brick_way {
-  background-color: green;
-}
-
-.game_brick_target{
-  background-color: rgb(255, 123, 224);
-}
