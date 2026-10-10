@@ -52,7 +52,7 @@ function App() {
     return "" 
   }
 
-  function keyDown(e) {
+  function keyDown(e: KeyboardEvent) {
     // console.log(e.key);
     // вниз
        const pos = [...playerCell]
